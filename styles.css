@@ -1,0 +1,12 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+.snowflakes {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
