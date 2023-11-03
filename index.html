@@ -1,10 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Help</title>
+    <style>
+        body {
+            background-color: #fce2e4; /* Pastel pink background color */
+            margin: 0;
+            padding: 0;
+        }
+
+        #titlebar {
+            background-color: #fce2e4; /* Background color matching the body */
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        #title {
+            font-family: Arial, sans-serif; /* Soft font */
+            color: white;
+            font-size: 24px;
+            padding-right: 60px;
+        }
+
+        #theme-button {
+            background-color: #fce2e4; /* Background color matching the body */
+            border: none;
+            color: gray;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+        }
+
+        #theme-button:hover {
+            background-color: gray;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <div class="snowflakes"></div>
-    <script src="script.js"></script>
+    <div id="titlebar">
+        <h1 id="title">psst</h1>
+        <button id="theme-button" onclick="changeTheme()">Change Theme</button>
+    </div>
+    <a href="https://i.redd.it/ixamo1zuokaa1.png">
+        <img src="https://i.redd.it/ixamo1zuokaa1.png" alt="Site Link" />
+    </a>
+    <p>Read if cute.</p>
+
+    <script>
+        function changeTheme() {
+            const body = document.body;
+            const themeButton = document.getElementById("theme-button");
+
+            if (body.style.backgroundColor === "gray") {
+                body.style.backgroundColor = "#fce2e4"; // Soft pink background
+                themeButton.style.backgroundColor = "#fce2e4";
+                themeButton.style.color = "gray";
+            } else {
+                body.style.backgroundColor = "gray"; // Gray background
+                themeButton.style.backgroundColor = "gray";
+                themeButton.style.color = "white";
+            }
+        }
+    </script>
 </body>
 </html>
