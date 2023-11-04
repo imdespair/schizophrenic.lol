@@ -1,46 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <title>Buy 1 Get 1 Free</title>
-    <link rel="icon" href="Assets/shiggy.gif">
-    <meta property="og:title" content="Buy 1 Get 1 Free">
-    <meta content="read if schizo" property="og:description">
-    <meta content="Assets/pass.png" property="og:image">
-    <meta content="#7700ff" data-react-helmet="true" name="theme-color">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta content="The Schizo Pass" property="og:title"/>
+    <link rel="icon" href="Assets/shiggy.gif"/>
+    <meta content="read if schizo" property="og:description"/>
+    <meta content="https://schizophrenic.lol/Assets/pass.png" property="og:image"/>
+    <meta content="#7700ff" data-react-helmet="true" name="theme-color"/>
+    <meta name="twitter:card" content="summary_large_image" />
     <style>
+      body {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+      }
+      @media (prefers-color-scheme: dark) {
         body {
-            background: #000; /* Black background */
-            background-image: url(Assets/snow.gif); /* Animated background */
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+          background: #000; /* Background Colour */
+          background-image: url(Assets/snow.gif); /* Animated background */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
         }
+      }
+
+      img {
+        height: 100vh;
+        width: 100vh;
+      }
     </style>
-</head>
-<body>
-    <img src="Assets/pass.png" alt="The Pass">
-    <script>
-        var discordEmbed = {
-            "embeds": [
-                {
-                    "type": "article",
-                    "url": "https://schizophrenic.lol/pass",
-                    "title": "The Schizo Pass",
-                    "description": "Use to your hearts content.",
-                    "thumbnail": {
-                        "url": "https://schizophrenic.lol/Assets/pass.png",
-                        "proxy_url": "https://images-ext-2.discordapp.net/external/_ydviP8J8GBoTM8jbtxiy1hAyb9LbFdyKQj2XnmoMT8/https/i.redd.it/ixamo1zuokaa1.png",
-                        "width": 755,
-                        "height": 358
-                    }
-                }
-            ]
-        };
-    </script>
-</body>
+  </head>
+  <body>
+    <img
+      src="https://schizophrenic.lol/Assets/pass.png"
+      alt=""
+    />
+  </body>
 </html>
