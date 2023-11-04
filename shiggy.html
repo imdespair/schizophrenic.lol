@@ -2,25 +2,24 @@
 <html lang="en">
 <head>
     <title>Shiggy</title>
-    <meta content="Shiggy" property="og:title"/>
     <link rel="icon" href="Assets/shiggy.gif"/>
-    <meta content="Read if cute" property="og:description"/>
+    <meta content="Shiggy" property="og:title"/>
+    <meta content="Read if cute." property="og:description"/>
     <meta content="https://schizophrenic.lol/Assets/shiggy.gif" property="og:image"/>
     <meta content="#7700ff" data-react-helmet="true" name="theme-color"/>
     <meta name="twitter:card" content="summary_large_image" />
     <style>
         body {
+            background: #000; /* Black background */
+            background-image: url(Assets/snow.gif); /* Animated background */
+            font-family: Arial, sans-serif;
+            text-align: center;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin: 0;
             height: 100vh;
-        }
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: #000; /* Background Colour */
-                background-image: url(Assets/snow.gif); /* Animated background */
-            }
+            margin: 0;
         }
 
         img {
