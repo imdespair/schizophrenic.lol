@@ -6,35 +6,6 @@
     <meta name="twitter:title" content="The Schizo Pass">
     <meta name="twitter:description" content="Use to your hearts content.">
     <meta name="twitter:image" content="https://i.redd.it/ixamo1zuokaa1.png">
-    <script>
-        // Create the JSON object
-        var discordEmbed = {
-            "embeds": [
-                {
-                    "type": "link",
-                    "url": "https://schizophrenic.lol/pass",
-                    "title": "The Schizo Pass",
-                    "description": "Use to your hearts content.",
-                    "thumbnail": {
-                        "url": "https://i.redd.it/ixamo1zuokaa1.png",
-                        "proxy_url": "https://images-ext-2.discordapp.net/external/_ydviP8J8GBoTM8jbtxiy1hAyb9LbFdyKQj2XnmoMT8/https/i.redd.it/ixamo1zuokaa1.png",
-                        "width": 755,
-                        "height": 358
-                    }
-                }
-            ]
-        };
-
-        // Convert the JSON object to a string
-        var discordEmbedString = JSON.stringify(discordEmbed);
-
-        // Create a script element to insert the JSON
-        var script = document.createElement("script");
-        script.innerText = "var discordEmbed = " + discordEmbedString + ";";
-
-        // Add the script element to the document
-        document.head.appendChild(script);
-    </script>
     <style>
         body {
             background: #000; /* Black background */
@@ -51,5 +22,6 @@
 </head>
 <body>
     <img src="https://i.redd.it/ixamo1zuokaa1.png" alt="The Pass">
+    <script src="discord-embed.js"></script>
 </body>
 </html>
