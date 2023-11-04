@@ -206,7 +206,7 @@ export class ONekoElement extends HTMLElement {
 
   connectedCallback() {
     // `||=` so the styles can still be overriden
-    this.style.backgroundImage ||= "url('./Assets/oneko.gif')";
+    this.style.backgroundImage ||= "url('/Assets/oneko.gif')";
     this.style.imageRendering ||= "pixelated";
     this.style.width ||= `32px`;
     this.style.height ||= `32px`;
