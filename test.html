@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Schizo Test</title>
+    <meta content="Schizo Test" property="og:title"/>
+    <link rel="icon" href="Assets/despair.png"/>
+    <meta content="Read if cute" property="og:description"/>
+    <meta content="https://schizophrenic.lol/Assets/despair.png" property="og:image"/>
+    <meta content="#7700ff" data-react-helmet="true" name="theme-color"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <style>
+        body {
+            background: #000; /* Black background */
+            background-image: url(Assets/snow.gif); /* Animated background */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #7700ff; /* Text color set to #7700ff */
+        }
+
+        .button {
+            margin-top: 20px;
+            background: none; /* No button background */
+            border: 2px solid #7700ff; /* Coloured outline */
+            color: #7700ff; /* Coloured text */
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .quiz-container {
+            text-align: center;
+            color: #7700ff; /* Text color set to #7700ff */
+        }
+
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .answers {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #result {
+            color: #7700ff; /* Text color set to #7700ff */
+        }
+    </style>
+</head>
+<body>
+    <h1>Schizo Test</h1>
+
+    <div class="quiz-container">
+        <div class="question" id="question">
+            Question 1: Do you often talk to yourself?
+        </div>
+
+        <div class="answers" id="answers">
+            <input type="radio" name="q1" value="yes"> Yes
+            <input type="radio" name="q1" value="no"> No
+        </div>
+
+        <button class="button" id="next">Next</button>
+        <button class="button" id="submit" style="display: none;">Submit</button>
+    </div>
+
+    <div id="result" style="display: none;">
+        <!-- Results will be displayed here -->
+    </div>
+
+    <script>
+        const questions = [
+            "Do you often talk to yourself?",
+            "Do you hear voices in your head?",
+            "Question 3",
+            "Question 4",
+            "Question 5",
+            "Question 6",
+            "Question 7",
+            "Question 8",
+            "Question 9",
+            "Question 10"
+        ];
+
+        let currentQuestion = 0;
+
+        const questionElement = document.getElementById("question");
+        const answersElement = document.getElementById("answers");
+        const nextButton = document.getElementById("next");
+        const submitButton = document.getElementById("submit");
+        const resultElement = document.getElementById("result");
+
+        function displayQuestion() {
+            if (currentQuestion < questions.length) {
+                questionElement.textContent = questions[currentQuestion];
+                nextButton.style.display = "block";
+                submitButton.style.display = "none";
+                resultElement.style.display = "none";
+            } else {
+                questionElement.textContent = "Questions completed!";
+                nextButton.style.display = "none";
+                submitButton.style.display = "block";
+                resultElement.style display = "none";
+            }
+        }
+
+        nextButton.addEventListener("click", () => {
+            currentQuestion++;
+            displayQuestion();
+        });
+
+        submitButton.addEventListener("click", () => {
+            // Calculate the result (for humor purposes)
+            const result = "Congratulations! You are the Schizo-master of the universe!";
+
+            // Display the result.
+            resultElement.textContent = result;
+            resultElement.style.display = "block";
+        });
+
+        displayQuestion();
+    </script>
+</body>
+</html>
