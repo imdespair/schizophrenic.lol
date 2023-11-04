@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            height: 100vh;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #000; /* Background Color */
+                background-image: url(Assets/snow.gif); /* Animated background */
+            }
+        }
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    </style>
+    <script>
+        // Get the requested path
+        var path = window.location.pathname;
+
+        // Redirect to the appropriate page
+        if (path === "/") {
+            window.location.replace("/index.html");
+        } else if (path === "/shiggy") {
+            window.location.replace("/Pages/shiggy.html");
+        } else if (path === "/pass") {
+            window.location.replace("/Pages/pass.html");
+        } else {
+            // Handle other cases or show a 404 page
+            window.location.replace("/Pages/404.html");
+        }
+    </script>
+</head>
+<body>
+    <img src="https://schizophrenic.lol/Assets/404.png" alt="" />
+</body>
+</html>
