@@ -10,13 +10,13 @@
     "spec": 2,
     "semanticColors": {
         "HEADER_PRIMARY": [
-            "#7700ff"
+            "#ffffff"
         ],
         "HEADER_SECONDARY": [
             "#7700ff"
         ],
         "TEXT_NORMAL": [
-            "#EFDFD7"
+            "#000000"
         ],
         "TEXT_MUTED": [
             "#7700ff"
@@ -28,10 +28,10 @@
             "#c089ff"
         ],
         "INTERACTIVE_ACTIVE": [
-            "#c089ff"
+            "#7700ff"
         ],
         "INTERACTIVE_MUTED": [
-            "#d5b1ff"
+            "#c089ff"
         ],
         "BACKGROUND_PRIMARY": [
             "#000000"
@@ -49,7 +49,7 @@
             "#7700ff"
         ],
         "BACKGROUND_FLOATING": [
-            "#7700ff"
+            "#000000"
         ],
         "BACKGROUND_MOBILE_PRIMARY": [
             "#000000"
@@ -71,7 +71,7 @@
             "#c089ff"
         ],
         "BACKGROUND_MODIFIER_SELECTED": [
-            "#c089ff"
+            "#7700ff"
         ],
         "BACKGROUND_MODIFIER_ACCENT": [
             "7700ff"
@@ -104,7 +104,7 @@
             "#000000"
         ],
         "CHANNEL_ICON": [
-            "#EFDFD7"
+            "#c089ff"
         ],
         "CHAT_BACKGROUND": [
             "#000000"
