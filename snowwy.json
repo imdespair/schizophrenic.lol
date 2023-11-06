@@ -21,14 +21,20 @@
         "TEXT_MUTED": [
             "#7700ff"
         ],
+        "TEXT_LINK": [
+            "#7700ff"
+        ],
+        "TEXT_DANGER": [
+            "#503E38"
+        ],
         "INTERACTIVE_NORMAL": [
             "#7700ff"
         ],
         "INTERACTIVE_HOVER": [
-            "#c089ff"
+            "#7700ff"
         ],
         "INTERACTIVE_ACTIVE": [
-            "#7700ff"
+            "#ffffff"
         ],
         "INTERACTIVE_MUTED": [
             "#c089ff"
@@ -71,7 +77,7 @@
             "#c089ff"
         ],
         "BACKGROUND_MODIFIER_SELECTED": [
-            "#c089ff"
+            "#7700ff"
         ],
         "BACKGROUND_MODIFIER_ACCENT": [
             "000000"
@@ -94,17 +100,11 @@
         "CHANNELS_DEFAULT": [
             "#9E8376"
         ],
-        "TEXT_LINK": [
-            "#7700ff"
-        ],
-        "TEXT_DANGER": [
-            "#503E38"
-        ],
         "KEYBOARD": [
             "#000000"
         ],
         "CHANNEL_ICON": [
-            "#c089ff"
+            "#7700ff"
         ],
         "CHAT_BACKGROUND": [
             "#000000"
