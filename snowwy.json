@@ -5,38 +5,33 @@
         {
             "name": "imdespair",
             "id": "1006638529746583752"
-        },
-
-        {
-            "name": "Amoled Snow",
-            "id": "1006638529746583752"
-          
         }
     ],
+    "spec": 2,
     "semanticColors": {
         "HEADER_PRIMARY": [
-            "#000000"
+            "#7700ff"
         ],
         "HEADER_SECONDARY": [
-            "#000000"
+            "#7700ff"
         ],
         "TEXT_NORMAL": [
             "#EFDFD7"
         ],
         "TEXT_MUTED": [
-            "#A07D6C"
+            "#7700ff"
         ],
         "INTERACTIVE_NORMAL": [
-            "#EFDFD7"
+            "#7700ff"
         ],
         "INTERACTIVE_HOVER": [
-            "#503E38"
+            "#c089ff"
         ],
         "INTERACTIVE_ACTIVE": [
-            "#EFDFD7"
+            "#c089ff"
         ],
         "INTERACTIVE_MUTED": [
-            "#957261"
+            "#d5b1ff"
         ],
         "BACKGROUND_PRIMARY": [
             "#000000"
@@ -51,10 +46,10 @@
             "#000000"
         ],
         "BACKGROUND_ACCENT": [
-            "#503E38"
+            "#7700ff"
         ],
         "BACKGROUND_FLOATING": [
-            "#000000"
+            "#7700ff"
         ],
         "BACKGROUND_MOBILE_PRIMARY": [
             "#000000"
@@ -67,40 +62,40 @@
         ],
        
         "BACKGROUND_MESSAGE_HOVER": [
-            "#322720"
+            "#c089ff"
         ],
         "BACKGROUND_MODIFIER_HOVER": [
-            "#322720"
+            "#c089ff"
         ],
         "BACKGROUND_MODIFIER_ACTIVE": [
-            "#3a2c26"
+            "#c089ff"
         ],
         "BACKGROUND_MODIFIER_SELECTED": [
-            "#372d2b"
+            "#c089ff"
         ],
         "BACKGROUND_MODIFIER_ACCENT": [
-            "503E38"
+            "7700ff"
         ],
         "SCROLLBAR_THIN_THUMB": [
-            "#26273b"
+            "#7700ff"
         ],
         "SCROLLBAR_THIN_TRACK": [
             "transparent"
         ],
         "SCROLLBAR_AUTO_THUMB": [
-            "#DAC0B3"
+            "#7700ff"
         ],
         "SCROLLBAR_AUTO_TRACK": [
-            "#DAC0B3"
+            "#7700ff"
         ],
         "CHANNELTEXTAREA_BACKGROUND": [
-            "#372E29"
+            "#000000"
         ],
         "CHANNELS_DEFAULT": [
             "#9E8376"
         ],
         "TEXT_LINK": [
-            "#9E8376"
+            "#7700ff"
         ],
         "TEXT_DANGER": [
             "#503E38"
@@ -137,6 +132,10 @@
         "WHITE_500": "#EFDFD7",
         "GREEN_360": "#503E38"
     },
-    "spec": 2,
-    "background": "https://schizophrenic.lol/assets/img/snow.gif"
+    "background": {
+        "blur": 0,
+        "url": "https://schizophrenic.lol/assets/img/snow.gif",
+        "alpha": 0,
+    },
+
 }
