@@ -135,7 +135,6 @@
     "background": {
         "blur": 0,
         "url": "https://schizophrenic.lol/assets/img/snow.gif",
-        "alpha": 0,
-    },
-
+        "alpha": 0.7,
+    }
 }
