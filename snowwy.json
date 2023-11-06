@@ -1,137 +1,26 @@
 {
-    "name": "Amoled Snow",
-    "description": "A dark snowwy theme perfect for relaxation.",
-    "authors": [
-        {
-            "name": "imdespair",
-            "id": "1006638529746583752"
-        }
-    ],
-    "spec": 2,
-    "semanticColors": {
-        "HEADER_PRIMARY": [
-            "#ffffff"
-        ],
-        "HEADER_SECONDARY": [
-            "#7700ff"
-        ],
-        "TEXT_NORMAL": [
-            "#000000"
-        ],
-        "TEXT_MUTED": [
-            "#7700ff"
-        ],
-        "TEXT_LINK": [
-            "#7700ff"
-        ],
-        "TEXT_DANGER": [
-            "#503E38"
-        ],
-        "INTERACTIVE_NORMAL": [
-            "#7700ff"
-        ],
-        "INTERACTIVE_HOVER": [
-            "#7700ff"
-        ],
-        "INTERACTIVE_ACTIVE": [
-            "#ffffff"
-        ],
-        "INTERACTIVE_MUTED": [
-            "#c089ff"
-        ],
-        "BACKGROUND_PRIMARY": [
-            "#000000"
-        ],
-        "BACKGROUND_SECONDARY": [
-            "#000000"
-        ],
-        "BACKGROUND_SECONDARY_ALT": [
-            "#000000"
-        ],
-        "BACKGROUND_TERTIARY": [
-            "#000000"
-        ],
-        "BACKGROUND_ACCENT": [
-            "#7700ff"
-        ],
-        "BACKGROUND_FLOATING": [
-            "#000000"
-        ],
-        "BACKGROUND_MOBILE_PRIMARY": [
-            "#000000"
-        ],
-        "BACKGROUND_MOBILE_SECONDARY": [
-            "#000000"
-        ],
-        "BACKGROUND_NESTED_FLOATING": [
-            "#000000"
-        ],
-       
-        "BACKGROUND_MESSAGE_HOVER": [
-            "#c089ff"
-        ],
-        "BACKGROUND_MODIFIER_HOVER": [
-            "#c089ff"
-        ],
-        "BACKGROUND_MODIFIER_ACTIVE": [
-            "#c089ff"
-        ],
-        "BACKGROUND_MODIFIER_SELECTED": [
-            "#7700ff"
-        ],
-        "BACKGROUND_MODIFIER_ACCENT": [
-            "000000"
-        ],
-        "SCROLLBAR_THIN_THUMB": [
-            "#7700ff"
-        ],
-        "SCROLLBAR_THIN_TRACK": [
-            "transparent"
-        ],
-        "SCROLLBAR_AUTO_THUMB": [
-            "#7700ff"
-        ],
-        "SCROLLBAR_AUTO_TRACK": [
-            "#7700ff"
-        ],
-        "CHANNELTEXTAREA_BACKGROUND": [
-            "#000000"
-        ],
-        "CHANNELS_DEFAULT": [
-            "#9E8376"
-        ],
-        "KEYBOARD": [
-            "#000000"
-        ],
-        "CHANNEL_ICON": [
-            "#7700ff"
-        ],
-        "CHAT_BACKGROUND": [
-            "#000000"
-        ]
-    },
-    "rawColors": {
-        "PRIMARY_500": "#000000",
-        "PRIMARY_100": "#000000",
-        "PRIMARY_200": "#000000",
-        "PRIMARY_300": "#000000",
-        "PRIMARY_360": "#000000",
-        "PRIMARY_400": "#000000",
-        "PRIMARY_600": "#000000",
-        "PRIMARY_630": "#000000",
-        "PRIMARY_660": "#000000",
-        "PRIMARY_700": "#000000",
-        "PRIMARY_800": "#000000",
-        "BRAND_260": "#7700ff",
-        "BRAND_360": "#ffffff",
-        "BRAND_500": "#7700ff",
-        "BRAND_560": "#7700ff",
-        "white_500": "#7700ff",
-        "YELLOW_300": "#957261",
-        "GREEN_600": "#7700ff",
-        "RED_400": "#7700ff",
-        "WHITE_500": "#EFDFD7",
-        "GREEN_360": "#7700ff"
+  "name": "Snowwy Amoled",
+  "description": "A Dark Snowwy Night.",
+  "authors": [
+    {
+      "name": "imdespair",
+      "id": "1006638529746583752"
+    }
+  ],
+  "spec": 2,
+  "semanticColors": {
+    "BACKGROUND_TERTIARY": ["#000000"],
+    "BACKGROUND_ACCENT": ["#08080A"],
+    "SPOILER_HIDDEN_BACKGROUND": ["#1E1F22"],
+    "SPOILER_REVEALED_BACKGROUND": ["#232428"]
+  },
+  "rawColors": {
+    "PRIMARY_600": "#000000",
+    "PRIMARY_630": "#000000",
+    "PRIMARY_660": "#08080A",
+    "PRIMARY_700": "#08080A",
+    "PRIMARY_800": "#08080A"
+  }
     },
     "background": {
         "blur": 0,
