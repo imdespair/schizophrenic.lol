@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Schizo | Oops</title>
-    <meta content="Schizo | Oops" property="og:title"/>
+    <!-- Document Title -->
+    <title>Schizo | Oops!</title>
+    
+    <!-- Favicon -->
     <link rel="icon" href="image/despair.png"/>
-    <meta content="TSomething went wrong, please try again." property="og:description"/>
-    <meta content="https://schizophrenic.lol/image/404.png" property="og:image"/>
-    <meta content="#7700ff" data-react-helmet="true" name="theme-color"/>
-    <meta name="twitter:card" content="summary_large_image"/>
-    <style>
-        body {
-            background: #000; /* Black background */
-            background-image: url(image/snow.gif); /* Animated background */
-            font-family: Arial, sans-serif;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
 
-        img {
-            max-height: 100%;
-            max-width: 100%;
-        }
-        .button-container {
-            text-align: center;
-        }
-        .button {
-            margin-top: 20px;
-            background: none; /* No button background */
-            border: 2px solid #7700ff; /* Coloured outline */
-            color: #7700ff; /* Coloured text */
-            padding: 10px 20px;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 18px;
-            border-radius: 5px;
-        }
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Schizo | Oops!"/>
+    <meta property="og:description" content="Read if 404."/>
+    <meta property="og:image" content="https://schizophrenic.lol/image/404.png"/>
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#7700ff"/>
 
-    </style>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Viewport Configuration for Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <img src="https://schizophrenic.lol/image/404.png" alt="404" />
-    <div class="button-container">
-        <a class="button" href="https://schizophrenic.lol/">Return Home</a>
+    <!-- Main content -->
+
+    <!-- Title Bar -->
+    <div class="titlebar__bar">
+        <div class="titlebar__logo">
+            <a href="index.html">
+                <img src="image/schizologo.png" alt="Logo">
+            </a>
+        </div>
     </div>
+    <!-- Title Bar -->
+
+    <!-- Navigation Bar -->
+    <div class="navbar__bar">
+        <a href="about" class="navbar__link">About Me</a>
+        <a href="shiggy" class="navbar__link">Shiggy</a>
+        <a href="themes" class="navbar__link">Themes</a>
+    </div>
+    <!-- Navigation Bar -->
+
+    <!-- 404 Image -->
+    <div class="error__image">
+        <img src="image/404.png" alt="404">
+    </div>
+    <!-- 404 Image -->
+
 </body>
 </html>

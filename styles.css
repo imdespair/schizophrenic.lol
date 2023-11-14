@@ -9,9 +9,11 @@
 /* Sites main variables */
 body {
     margin: 0; /* Removes the margin */
+    width: 100vw;
+    height: 100vh;
     background-color: var(--theme-dark); /* Black background */
     background-image: url(image/snow.gif); /* Snowwy background */
-    background-position: center; /* Centers The background image */
+    background-position:inherit; /* Centers The background image */
     font-family: 'Quicksand', sans-serif; /* Use Quicksand font from Google Fonts */
 }
 
@@ -52,6 +54,48 @@ body {
     color: var(--primary-color); /* Change text color on hover */
 }
 
+/* Themes Page */
+.themes__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.themes__box {
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.themes__image {
+    width: 100%;
+    flex-grow: 1; /* Take up available space */
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.themes__text {
+    color: var(--secondary-color);
+    padding: 10px;
+    background-color: var(--primary-color);
+    border: var(--accent-color);
+    transition: transform 0.3s;
+}
+
+.themes__box:hover .themes__image,
+.themes__box:hover .themes__text {
+    transform: scale(1.1);
+}
+
 /* Shiggy Image */
 .shiggy__gif {
     display: flex;
@@ -63,5 +107,19 @@ body {
 }
 
 .shiggy__gif img {
+    display: none; /* Hide image when not used */
+}
+
+/* 404 Image */
+.error__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust ig idk */
+    background: url('image/404.png') no-repeat center center; /* Set image as background */
+    background-size: auto; /* Background size */
+}
+
+.error__image img {
     display: none; /* Hide image when not used */
 }
