@@ -12,7 +12,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: var(--theme-dark); /* Black background */
-    background-image: url(image/snow.gif); /* Snowwy background */
+    background-image: url(src/assets/snow.gif); /* Snowwy background */
     background-position:inherit; /* Centers The background image */
     font-family: 'Quicksand', sans-serif; /* Use Quicksand font from Google Fonts */
 }
@@ -60,7 +60,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 80vh; /* Adjust ig idk */
-    background: url('image/shiggy.gif') no-repeat center center; /* Set image as background */
+    background: url('src/assets/shiggy.gif') no-repeat center center; /* Set image as background */
     background-size: contain; /* Background size */
 }
 
@@ -74,7 +74,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 80vh; /* Adjust ig idk */
-    background: url('image/404.png') no-repeat center center; /* Set image as background */
+    background: url('src/assets/404.png') no-repeat center center; /* Set image as background */
     background-size: auto; /* Background size */
 }
 
