@@ -1,0 +1,67 @@
+/* Sites colour scheme */
+:root {
+    --primary-color: #7700ff; /* Neon purple */
+    --secondary-color: #ffffff; /* Pure white */
+    --accent-color: #fdfd96; /* Pastel yellow */
+    --theme-dark: #000000; /* Pure black */
+}
+    
+/* Sites main variables */
+body {
+    margin: 0; /* Removes the margin */
+    background-color: var(--theme-dark); /* Black background */
+    background-image: url(image/snow.gif); /* Snowwy background */
+    background-position: center; /* Centers The background image */
+    font-family: 'Quicksand', sans-serif; /* Use Quicksand font from Google Fonts */
+}
+
+/* Titlebar */
+.titlebar__bar {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    background: transparent; /* Transparent background */
+    padding: 0px; /* Adjust padding as needed */
+}
+
+.titlebar__logo {
+    display: flex;
+    align-items: center; /* Center logo vertically */
+}
+
+.titlebar__logo img {
+    max-height: 80px; /* Set the maximum height of the logo */
+}
+
+/* Navigation Bar */
+.navbar__bar {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    background: transparent; /* Background color */
+    padding: 10px; /* Adjust padding */
+}
+
+.navbar__link {
+    color: var(--secondary-color); /* Text color */
+    text-decoration: none; /* Remove underline from links */
+    margin: 0 10px; /* Adjust spacing between links */
+    transition: color 0.3s; /* Add a smooth transition effect for color changes */
+}
+
+.navbar__link:hover {
+    color: var(--primary-color); /* Change text color on hover */
+}
+
+/* Shiggy Image */
+.shiggy__gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust ig idk */
+    background: url('image/shiggy.gif') no-repeat center center; /* Set image as background */
+    background-size: contain; /* Background size */
+}
+
+.shiggy__gif img {
+    display: none; /* Hide image when not used */
+}
