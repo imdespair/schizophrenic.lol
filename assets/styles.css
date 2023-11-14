@@ -54,48 +54,6 @@ body {
     color: var(--primary-color); /* Change text color on hover */
 }
 
-/* Themes Page */
-.themes__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-}
-
-.themes__box {
-    border: 1px solid var(--primary-color);
-    border-radius: 10px;
-    width: calc(33.33% - 20px);
-    margin: 10px;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-}
-
-.themes__image {
-    width: 100%;
-    flex-grow: 1; /* Take up available space */
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.themes__text {
-    color: var(--secondary-color);
-    padding: 10px;
-    background-color: var(--primary-color);
-    border: var(--accent-color);
-    transition: transform 0.3s;
-}
-
-.themes__box:hover .themes__image,
-.themes__box:hover .themes__text {
-    transform: scale(1.1);
-}
-
 /* Shiggy Image */
 .shiggy__gif {
     display: flex;
