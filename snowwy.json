@@ -1,0 +1,30 @@
+{
+  "name": "Snowwy Amoled",
+  "description": "A Dark Snowwy Night.",
+  "authors": [
+    {
+      "name": "imdespair",
+      "id": "1006638529746583752"
+    }
+  ],
+  "spec": 2,
+  "semanticColors": {
+    "HEADER_PRIMARY": ["#ffffff"],
+    "BACKGROUND_TERTIARY": ["#000000"],
+    "BACKGROUND_ACCENT": ["#08080A"],
+    "SPOILER_HIDDEN_BACKGROUND": ["#1E1F22"],
+    "SPOILER_REVEALED_BACKGROUND": ["#232428"]
+  },
+  "rawColors": {
+    "PRIMARY_600": "#000000",
+    "PRIMARY_630": "#000000",
+    "PRIMARY_660": "#08080A",
+    "PRIMARY_700": "#08080A",
+    "PRIMARY_800": "#08080A"
+  },
+    "background": {
+        "blur": 0,
+        "url": "https://schizophrenic.lol/assets/img/snow.gif",
+        "alpha": 0.7
+    }
+}
