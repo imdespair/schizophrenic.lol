@@ -6,18 +6,27 @@ $(document).ready(function () {
         // Get all links with class navbar__link
         var links = $('.navbar__link');
 
+        // Get the current page URL
+        var currentPage = window.location.pathname;
+
         // Iterate through each link
         links.each(function () {
-            // Get the current href attribute
-            var href = $(this).attr('href');
+            // Get the original href attribute
+            var originalHref = $(this).attr('href');
 
-            // Remove the .html extension if it exists
-            href = href.replace('.html', '');
+            // Check if the current page URL ends with the link's href
+            if (currentPage.endsWith(originalHref)) {
+                // Remove the .html extension if it exists
+                var cleanedHref = originalHref.replace('.html', '');
 
-            // Update the href attribute with the cleaned link
-            $(this).attr('href', 'https://schizophrenic.lol' + href);
+                // Update the href attribute with the cleaned link
+                $(this).attr('href', 'https://schizophrenic.lol' + cleanedHref);
+            }
         });
     }
+
+    // Call the cleanLinks function when the document is ready
+    cleanLinks();
 
     // Call the cleanLinks function when a link is clicked
     $('.navbar__link').click(function (event) {
