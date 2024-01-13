@@ -6,22 +6,16 @@ $(document).ready(function () {
         // Get all links with class navbar__link
         var links = $('.navbar__link');
 
-        // Get the current page URL
-        var currentPage = window.location.pathname;
-
         // Iterate through each link
         links.each(function () {
             // Get the original href attribute
             var originalHref = $(this).attr('href');
 
-            // Check if the current page URL ends with the link's href
-            if (currentPage.endsWith(originalHref)) {
-                // Remove the .html extension if it exists
-                var cleanedHref = originalHref.replace('.html', '');
+            // Remove the .html extension if it exists
+            var cleanedHref = originalHref.replace('.html', '');
 
-                // Update the href attribute with the cleaned link
-                $(this).attr('href', 'https://schizophrenic.lol' + cleanedHref);
-            }
+            // Update the href attribute with the cleaned link
+            $(this).attr('href', 'https://schizophrenic.lol' + cleanedHref);
         });
     }
 
