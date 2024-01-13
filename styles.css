@@ -8,7 +8,7 @@
     
 /* Sites main variables */
 body {
-    margin: 0; /* Removes the margin */
+    margin: 0; /* Removes the margin    */
     width: 100vw;
     height: 100vh;
     background-color: var(--theme-dark); /* Black background */
