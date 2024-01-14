@@ -1,28 +1,44 @@
-// scripts/index.js
+// Wait for the DOM to be ready
+document.addEventListener("DOMContentLoaded", function () {
+    // Get all the navigation links
+    var navLinks = document.querySelectorAll(".navbar__link");
 
-$(document).ready(function () {
-    // Function to clean links
-    function cleanLink(link) {
-        return link.replace(/\.html$/, '');
+    // Function to handle navigation
+    function navigateTo(url) {
+        // Use the pushState method to change the URL without reloading the page
+        history.pushState(null, null, url);
+
+        // Call your function to load content or update the UI as needed
+        loadContent(url);
     }
 
-    // Function to clean all links
-    function cleanLinks() {
-        $('.navbar__link').each(function () {
-            var originalHref = $(this).attr('href');
-            $(this).attr('href', 'https://schizophrenic.lol' + cleanLink(originalHref));
+    // Function to load content based on the URL
+    function loadContent(url) {
+        // You can implement logic here to fetch and display the content for the given URL
+        // For simplicity, you can just log the URL to the console for now
+        console.log("Loading content for URL:", url);
+    }
+
+    // Attach click event listeners to the navigation links
+    navLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            // Prevent the default behavior of the link
+            event.preventDefault();
+
+            // Get the target URL from the link's href attribute
+            var targetUrl = link.getAttribute("href");
+
+            // Navigate to the target URL
+            navigateTo(targetUrl);
         });
-    }
-
-    // Call the cleanLinks function when the document is ready
-    cleanLinks();
-
-    // Call the cleanLinks function when a link is clicked
-    $('.navbar__link').click(function (event) {
-        event.preventDefault(); // Prevent the default link behavior
-        window.location.href = cleanLink($(this).attr('href')); // Navigate to the cleaned link
     });
 
-    // Reclean links when the orientation changes on mobile devices
-    $(window).on('orientationchange', cleanLinks);
+    // Listen for popstate event to handle browser back/forward button clicks
+    window.addEventListener("popstate", function (event) {
+        // Get the URL from the event state
+        var url = location.pathname;
+
+        // Load content for the URL
+        loadContent(url);
+    });
 });
