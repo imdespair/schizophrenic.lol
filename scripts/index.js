@@ -3,16 +3,15 @@
 $(document).ready(function () {
     // Function to clean links
     function cleanLinks() {
-        // Get all links with class navbar__link
+        // Select links directly by class, avoiding unnecessary elements
         var links = $('.navbar__link');
 
-        // Iterate through each link
+        // Loop through links and update href attributes
         links.each(function () {
-            // Get the original href attribute
             var originalHref = $(this).attr('href');
 
-            // Remove the .html extension if it exists
-            var cleanedHref = originalHref.replace('.html', '');
+            // Use a single replace call to remove .html extension
+            var cleanedHref = originalHref.replace(/\.html$/, '');
 
             // Update the href attribute with the cleaned link
             $(this).attr('href', 'https://schizophrenic.lol' + cleanedHref);
@@ -26,6 +25,11 @@ $(document).ready(function () {
     $('.navbar__link').click(function (event) {
         event.preventDefault(); // Prevent the default link behavior
         cleanLinks(); // Clean the links
-        window.location = $(this).attr('href'); // Navigate to the cleaned link
+        window.location.href = $(this).attr('href'); // Navigate to the cleaned link
+    });
+
+    // Reclean links when the orientation changes on mobile devices
+    $(window).on('orientationchange', function () {
+        cleanLinks();
     });
 });
