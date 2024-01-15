@@ -5,16 +5,21 @@
     --accent-color: #fdfd96; /* Pastel yellow */
     --theme-dark: #000000; /* Pure black */
 }
-    
+
 /* Sites main variables */
 body {
-    margin: 0; /* Removes the margin    */
+    margin: 0; /* Removes the margin*/
     width: 100vw;
     height: 100vh;
     background-color: var(--theme-dark); /* Black background */
     background-image: url(/assets/snow.gif); /* Snowwy background */
     background-position:inherit; /* Centers The background image */
-    font-family: 'Quicksand', sans-serif; /* Use Quicksand font from Google Fonts */
+    font-family: 'Sometype Mono', sans-serif; /* Use Quicksand font from Google Fonts */
+}
+
+/* Mouse Cursor */
+html {
+    cursor: url('assets/normal.cur'), default !important;
 }
 
 /* Titlebar */
@@ -52,6 +57,7 @@ body {
 
 .navbar__link:hover {
     color: var(--primary-color); /* Change text color on hover */
+    cursor: url('assets/hover.cur'), default;
 }
 
 /* Shiggy Image */

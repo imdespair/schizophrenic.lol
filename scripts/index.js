@@ -18,7 +18,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     window.addEventListener("popstate", function (event) {
-        // Handle popstate if needed
-        // You may want to load content dynamically or perform other actions
     });
 });
