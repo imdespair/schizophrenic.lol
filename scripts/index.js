@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var navLinks = document.querySelectorAll(".navbar__link");
 
     function navigateTo(url) {
-        // Use the pushState method to change the URL without reloading the page
         history.pushState(null, null, url);
         
         // Redirect to the target URL

@@ -6,6 +6,7 @@
     --theme-dark: #000000; /* Pure black */
 }
 
+
 /* Sites main variables */
 body {
     margin: 0; /* Removes the margin*/
@@ -17,10 +18,12 @@ body {
     font-family: 'Sometype Mono', sans-serif; /* Use Quicksand font from Google Fonts */
 }
 
+
 /* Mouse Cursor */
 html {
     cursor: url('assets/normal.cur'), default !important;
 }
+
 
 /* Titlebar */
 .titlebar__bar {
@@ -39,6 +42,11 @@ html {
 .titlebar__logo img {
     max-height: 80px; /* Set the maximum height of the logo */
 }
+
+.titlebar__logo img:hover {
+    cursor: url('assets/hover.cur'), default !important;
+} 
+
 
 /* Navigation Bar */
 .navbar__bar {
@@ -60,6 +68,7 @@ html {
     cursor: url('assets/hover.cur'), default;
 }
 
+
 /* Shiggy Image */
 .shiggy__gif {
     display: flex;
@@ -73,6 +82,7 @@ html {
 .shiggy__gif img {
     display: none; /* Hide image when not used */
 }
+
 
 /* 404 Image */
 .error__image {
