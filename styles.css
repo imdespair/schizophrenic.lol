@@ -83,6 +83,20 @@ html {
     display: none; /* Hide image when not used */
 }
 
+/* Death GIF */
+.death__gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust ig idk */
+    background: url('/assets/death.gif') no-repeat center center; /* Set image as background */
+    background-size: contain; /* Background size */
+}
+
+.death__gif img {
+    display: none; /* Hide image when not used */
+}
+
 
 /* 404 Image */
 .error__image {
